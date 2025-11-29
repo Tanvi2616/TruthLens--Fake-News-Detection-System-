@@ -39,39 +39,27 @@ Contains ~44,900 news articles
 
 Files included:
 
-Fake.csv
+- Fake.csv
 
-True.csv
+- True.csv
 
 ## 🛠️ Tech Stack
 
-Python
+- Python
 
-Libraries:
+- Libraries: Pandas ,NumPy ,Scikit-learn, NLTK, Matplotlib, Seaborn
 
-Pandas
+- Modeling: TF-IDF, LinearSVC, Logistic Regression, Naive Bayes
 
-NumPy
-
-Scikit-learn
-
-NLTK
-
-Matplotlib
-
-Seaborn
-
-Modeling: TF-IDF, LinearSVC, Logistic Regression, Naive Bayes
-
-Optional UI: Streamlit 
+- UI: Streamlit 
 
 ## 🧠 How It Works
 
-Loads Fake & Real news datasets
+- Loads Fake & Real news datasets
 
-Labels and merges them into a single dataframe
+- Labels and merges them into a single dataframe
 
-Performs NLP preprocessing:
+- Performs NLP preprocessing:
 
 Lowercasing
 
@@ -81,18 +69,18 @@ Punctuation removal
 
 Lemmatization
 
-Converts text to vectors using TF-IDF
+- Converts text to vectors using TF-IDF
 
-Trains multiple ML models
+- Trains multiple ML models
 
-Selects the best-performing model (Calibrated LinearSVC)
+- Selects the best-performing model (Calibrated LinearSVC)
 
-Saves the model as best_model.pkl
+- Saves the model as best_model.pkl
 
-Predicts news authenticity on new input
+- Predicts news authenticity on new input
 
 ## 📊 Modeling & EDA
-Preprocessing
+- Preprocessing
 
 Tokenization
 
@@ -102,7 +90,7 @@ Stopwords removal
 
 TF-IDF vectorization
 
-EDA Insights
+- EDA Insights
 
 Real & Fake news counts are almost balanced
 
@@ -114,7 +102,7 @@ Fake news → more political/sensational words
 
 Real news → more factual terms
 
-Evaluation Metrics
+- Evaluation Metrics
 
 Accuracy
 
@@ -136,19 +124,19 @@ Visit the live app to try it out:
 
 Hosted on Streamlit Cloud
 
-#3 🔮 Future Scope
+## 🔮 Future Scope
 
-Add Deep Learning (LSTM / GRU / BERT)
+- Add Deep Learning (LSTM / GRU / BERT)
 
-Real-time URL & article classification
+- Real-time URL & article classification
 
-Chrome extension for instant fact-checking
+- Chrome extension for instant fact-checking
 
-Multi-language news detection
+- Multi-language news detection
 
-Add credibility scoring system
+- Add credibility scoring system
 
-API for external apps
+- API for external apps
 
 
 ## 📜 License
