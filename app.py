@@ -8,8 +8,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 
-from nltk.corpus import stopwords
-
 # --------------------------------------------------------
 # 1️⃣ PAGE CONFIG
 # --------------------------------------------------------
@@ -72,10 +70,8 @@ svm_model = load_model()
 vectorization = load_vectorizer()
 
 # --------------------------------------------------------
-# 4️⃣ TEXT CLEANING (same as training)
+# 4️⃣ TEXT CLEANING (NO NLTK, NO SPACY — Streamlit Safe)
 # --------------------------------------------------------
-
-
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 stop_words = ENGLISH_STOP_WORDS
 
@@ -90,11 +86,9 @@ def wordopt(text):
     words = []
     for w in text.split():
         if w not in stop_words:
-            words.append(w)   # NO LEMMATIZER
+            words.append(w)
 
     return " ".join(words)
-
-
 
 # --------------------------------------------------------
 # 5️⃣ HEADER
@@ -161,9 +155,7 @@ if predict_clicked:
             color = "#28a745"
             label = "Real News ✅"
 
-        # --------------------------------------------------------
-        # RESULT CARD (correct placement)
-        # --------------------------------------------------------
+        # RESULT CARD
         html_result = f"""
         <div style="
             background: rgba(255,255,255,0.92);
@@ -198,9 +190,7 @@ if predict_clicked:
 
         components.html(html_result, height=220)
 
-        # --------------------------------------------------------
-        # SMALL BAR GRAPH
-        # --------------------------------------------------------
+        # BAR GRAPH
         fig, ax = plt.subplots(figsize=(3.5, 3))
         labels = ["Fake News", "Real News"]
         values = [proba[0] * 100, proba[1] * 100]
@@ -212,7 +202,3 @@ if predict_clicked:
         ax.set_title("Confidence Chart")
 
         st.pyplot(fig)
-
-
-
-
