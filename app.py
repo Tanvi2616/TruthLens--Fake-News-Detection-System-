@@ -8,7 +8,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 
-from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
 # --------------------------------------------------------
@@ -212,5 +211,6 @@ if predict_clicked:
         ax.set_title("Confidence Chart")
 
         st.pyplot(fig)
+
 
 
