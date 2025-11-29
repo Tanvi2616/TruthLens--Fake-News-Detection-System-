@@ -76,7 +76,9 @@ vectorization = load_vectorizer()
 # 4️⃣ TEXT CLEANING (same as training)
 # --------------------------------------------------------
 lemmatizer = WordNetLemmatizer()
-stop_words = set(stopwords.words('english'))
+
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
+stop_words = ENGLISH_STOP_WORDS
 
 def wordopt(text):
     text = str(text).lower()
@@ -209,3 +211,4 @@ if predict_clicked:
         ax.set_title("Confidence Chart")
 
         st.pyplot(fig)
+
