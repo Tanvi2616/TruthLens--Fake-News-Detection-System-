@@ -75,7 +75,9 @@ vectorization = load_vectorizer()
 # --------------------------------------------------------
 # 4️⃣ TEXT CLEANING (same as training)
 # --------------------------------------------------------
-lemmatizer = WordNetLemmatizer()
+import spacy
+nlp = spacy.load("en_core_web_sm")
+
 
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 stop_words = ENGLISH_STOP_WORDS
@@ -88,12 +90,11 @@ def wordopt(text):
     text = re.sub(r'\d+', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
 
-    words = []
-    for w in text.split():
-        if w not in stop_words:
-            words.append(lemmatizer.lemmatize(w))
+    doc = nlp(text)
+    words = [token.lemma_ for token in doc if token.lemma_ not in stop_words]
 
     return " ".join(words)
+
 
 # --------------------------------------------------------
 # 5️⃣ HEADER
@@ -211,4 +212,5 @@ if predict_clicked:
         ax.set_title("Confidence Chart")
 
         st.pyplot(fig)
+
 
